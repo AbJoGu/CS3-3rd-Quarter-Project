@@ -5,10 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PhysiForm</title>
 
-        <link rel="icon" type="image/png" href="/images/favicon.png">
+        <link rel="icon" type="image/png" href="X-Math.png">
     </head>
     <style>
-        
         body {
             background-image: url(physics-16372359.jpg);
             background-repeat: no-repeat;
@@ -53,6 +52,19 @@
                 <input type="submit" value="Sign Up">
             </fieldset>
         </form>
+
+        <script>
+            function LoginData() {
+                const nameData = document.getElementById('UserName');
+                const passData = document.getElementById('Password')
+
+                let name = nameData.value;
+                let pass = passData.value;
+
+                localStorage.setItem('inputName', name)
+                localStorage.setItem('inputPass', pass)
+            }
+        </script>
     </body>
 </html>
 
