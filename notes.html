@@ -8,16 +8,28 @@
         <link rel="icon" type="image/png" href="X-Math.png">
     </head>
     <style>
-        body {
+       body {
             background-image: url(particle_accelerator.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            font-family: 'Courier New', Courier, monospace;
             position: relative;
+            height: 100vh;
             margin: 0;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        /* dark tint overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+
         #NotesForm {
             margin: 50px;
             color: white;
@@ -32,8 +44,23 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
+        #SaveNotes:hover {
+            background-color: rgb(153, 173, 220);
+        }
+
+        #output {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            height: 400px;
+            overflow-y: auto;
+            margin: 50px;
+        }
     </style>
     <body>
+        <div id="output" style="float:right;">  </div>
         <form id="NotesForm">
 
             <h2> PhysiForm Notes</h2>
@@ -46,4 +73,29 @@
 
             <button type="submit" id="SaveNotes"> Save Notes </button>
         </form>
+
+        <script>
+            // grab references once
+            const notesTextarea = document.getElementById('Notes');
+            const outputDiv = document.getElementById('output');
+            const notesForm = document.getElementById('NotesForm');
+
+            // when the form is submitted, show the notes and save them
+            notesForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const notes = notesTextarea.value.trim();
+                outputDiv.textContent = notes;             // display in output div
+                localStorage.setItem('userNotes', notes);  // persist so it survives reload
+            });
+
+            // load from storage on page load and show immediately
+            window.addEventListener('DOMContentLoaded', () => {
+                const storedValue = localStorage.getItem('userNotes');
+                if (storedValue !== null) {
+                    outputDiv.textContent = storedValue;
+                    // optionally also populate textarea so user can edit
+                    notesTextarea.value = storedValue;
+                }
+            });
+        </script>
     </body>
