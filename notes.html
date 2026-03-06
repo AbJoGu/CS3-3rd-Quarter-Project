@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PhysiForm</title>
+
+        <link rel="icon" type="image/png" href="X-Math.png">
+    </head>
+    <style>
+        body {
+            background-image: url(particle_accelerator.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            margin: 0;
+        }
+
+        /* dark tint overlay */
+        #NotesForm {
+            margin: 50px;
+            color: white;
+            border-radius: 15px;
+        }
+
+        #SaveNotes {
+            background-color: rgb(187, 202, 252);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <form id="NotesForm">
+
+            <h2> PhysiForm Notes</h2>
+            <p> Feel free to put your thoughts, commentary, questions and notes here</p>
+            <p> Remember to save work by using the "Save Notes" button at the bottom of the page! </p>
+            <p> You may also resize this text area according to the length of you notes. </p>
+            
+            <label for="Notes"></label>
+            <textarea id="Notes" placeholder="Enter Notes Here" name="Notes" required></textarea> <br><br>
+
+            <button type="submit" id="SaveNotes"> Save Notes </button>
+        </form>
+    </body>

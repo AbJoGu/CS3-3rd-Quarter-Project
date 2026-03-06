@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> PhysiForm </title>
+    </head>
+    <style>
+        body {
+            background-image: url(particle_accelerator.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        #Greeting {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(253, 254, 255, 0);
+            padding: 50px;
+            border-radius: 30px;
+             font-family: 'Courier New', Courier, monospace;
+            color: white;
+            text-justify: center;
+        }
+
+        #Navigation {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(253, 254, 255, 0);
+            padding: 50px;
+            border-radius: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        /* space out links in the navigation */
+        #Navigation a {
+            margin: 0 20px; /* horizontal spacing */
+            text-decoration: none;
+        }
+
+        #Navigation:hover {
+            rgba(255, 255, 255, 0.7 );
+        }
+
+
+    </style>
+    <body>
+        <div id="Greeting">
+            <h2> <b> Welcome to PhysiForm </b></h2> <br>
+            <p> <b>Your one-stop shop for physics problem-solving!</b> </p>
+            <p> <b>Our goal is to teach you the basics of physics and problem solving, that will</b> </p>
+            <p> <b>be the basis of more complex concepts.</b> </p>
+        </div>
+
+        <div>
+            <nav id="Navigation">
+                <a href="lesson.html" style="color:#FFFFFF;">Short Lessons</a>
+                <a href="notes.html" style="color:#FFFFFF;">Notes</a>
+                <a href="resources.html" style="color:#FFFFFF;"> Resources </a>
+                <a href="https://app.quizrise.com/play/cmmekhmj10009kw04xviugfqr" style="color:#FFFFFF;"> Quiz </a>
+            </nav>
+        </div>
+    </body>
+</html>

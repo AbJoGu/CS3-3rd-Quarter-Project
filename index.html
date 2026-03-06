@@ -12,7 +12,7 @@
             background-image: url(physics-16372359.jpg);
             background-repeat: no-repeat;
             background-size: 100%;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         form {
@@ -30,7 +30,7 @@
         }
 
         #Password {
-            margin-top: 10px;;
+            margin-top: 10px;
         }
         
     </style>
@@ -48,21 +48,32 @@
                 <input type="password" id="Password" placeholder="Enter Password" name="Password"
                 required> <br><br>
                 
-                <input type="submit" value="Log In">
-                <input type="submit" value="Sign Up">
+                <button type="submit" id="Submit"> Sign up </button>
+                <button type="submit" id="loginButton"  > Log in </button>
             </fieldset>
         </form>
 
         <script>
+            // Fix duplicate ID: Rename the button's ID to avoid conflict with the form
+            // Add click event listeners to both buttons (since both are type="submit")
+            document.getElementById("Submit").addEventListener("click", handleSubmit);
+            document.getElementById("loginButton").addEventListener("click", handleSubmit);  // Renamed from "LogIn" to "loginButton"
+            
+            function handleSubmit(event) {
+                event.preventDefault();  // Prevent default form submission (page reload)
+                LoginData();  // Save username/password to localStorage
+                window.location.href = 'homepage.html';  // Navigate to homepage.html (switches pages)
+            }
+
             function LoginData() {
                 const nameData = document.getElementById('UserName');
-                const passData = document.getElementById('Password')
+                const passData = document.getElementById('Password');
 
                 let name = nameData.value;
                 let pass = passData.value;
 
-                localStorage.setItem('inputName', name)
-                localStorage.setItem('inputPass', pass)
+                localStorage.setItem('inputName', name);
+                localStorage.setItem('inputPass', pass);
             }
         </script>
     </body>
